@@ -32,38 +32,54 @@ sample_maze = [
        ]
 
 places_where_x_can_be = {
-       1:range(74), 
-       2:[range(17,24), range(54, 58)],
-       3:[range(17,24), range(54, 58)],
-       4:[range(17,24), range(54, 58)],
-       5:[range(17,24), range(54, 58)],
-       6:range(17,58),
-       7:[range(17,24), range(54, 58)],
-       8:[range(17,24), range(54, 58)],
-       9:[range(17,24), range(54, 58)],
-       10:[range(17,24), range(54, 58)],
-       11:range(1,73),
-       12:[range(8, 11),range(18,23), range(65, 69)],
-       13:[range(8, 11),range(18,23), range(65, 69)],
-       14:[range(8, 11),range(18,23), range(65, 69)],
-       15:[range(8, 11),range(18,23), range(65, 69)],
-       16:[range(8, 11),range(18,23), range(65, 69)],
-       17:[range(8, 11),range(18,23), range(65, 69)],
-       18:range(8, 69),
-       19:range(37, 42),
-       20:range(37, 42),
-       21:range(37, 42),
-       22:range(1,73),
-       23:range(12, 16),
-       24:range(12, 16), 
-       25:range(12, 16),
-       26:range(12, 16),
-       27:range(1, 73),
-       28:range(52, 57)
+       0:[],
+       1:[], 
+       2:[],
+       3:[],
+       4:[],
+       5:[],
+       6:[],
+       7:[],
+       8:[],
+       9:[],
+       10:[],
+       11:[],
+       12:[],
+       13:[],
+       14:[],
+       15:[],
+       16:[],
+       17:[],
+       18:[],
+       19:[],
+       20:[],
+       21:[],
+       22:[],
+       23:[],
+       24:[], 
+       25:[],
+       26:[],
+       27:[],
+       28:[],
+       29:[]
        }
 
 
-
+for index in range(len(sample_maze)):
+       if "|" in sample_maze[index][1:73]:
+              flag = False 
+              for i in range(1,73):
+                     if sample_maze[index][i] == '|':
+                            flag = not flag
+                     if flag and sample_maze[index][i] == ' ':
+                            places_where_x_can_be[index].append(i)
+                                   
+       else:
+              for i in range(1, 73):
+                     if sample_maze[index][i] == ' ':
+                            places_where_x_can_be[index].append(i)
+print(places_where_x_can_be)
+                            
 def print_line(no_hor, start_hor, end_hor, no_vert, vert_pos):
        pass
 def print_spaces(index):
@@ -133,7 +149,8 @@ def print_maze():
               print("_", end = '')
        print()
        #first road
-       print_spaces(74)
+       print("x", end = '')
+       print_spaces(73)
        print("|")
        print_underscores(18)
        print_spaces(7) #path diverges (one branch)
