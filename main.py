@@ -8,10 +8,10 @@ print("You are X!")
 print("Can you get out of the maze?")
 print("Use 'w', 'a', 's' and 'd' keys to move up, "+
       "left, down and right respectively!")
-uin = input()
-vert_commands = ['w', 'W', 's', 'S']
-hor_commands = ['a', 'd','A', 'D']
-valid_inputs = ['w', 'a', 's', 'd', 'W', 'A', 'S', 'D']
+uin = input().lower()
+vert_commands = ['w', 's']
+hor_commands = ['a', 'd']
+valid_inputs = ['w', 'a', 's', 'd']
 while not(row_pos == 29 and (column_pos in places_where_x_can_be[29])):
     while not uin in valid_inputs:
         print("That is an invalid input, try again.")
